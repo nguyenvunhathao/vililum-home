@@ -143,8 +143,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(1.5rem, 4vh, 2.25rem);
       width: min(100%, 32rem);
+    }
+
+    .section-brands {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.5rem, 10vh, 5rem) clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.5rem, 5vw, 3rem);
+      width: min(100%, 42rem);
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: clamp(3.25rem, 11vw, 5.5rem);
+      height: clamp(3.25rem, 11vw, 5.5rem);
+      color: var(--fg);
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .portal {
@@ -176,26 +204,6 @@
       touch-action: none;
     }
 
-    .brands {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(1.25rem, 5vw, 2.75rem);
-      width: 100%;
-    }
-
-    .brand-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: clamp(3rem, 10vw, 5rem);
-      height: clamp(3rem, 10vw, 5rem);
-      color: var(--fg);
-      text-decoration: none;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .brand-link svg {
       width: 100%;
       height: 100%;
@@ -220,7 +228,7 @@
     .quote {
       max-width: 38rem;
       margin: 0 auto;
-      text-align: center;
+      text-align: left;
     }
 
     .quote-text {
@@ -228,16 +236,15 @@
       font-weight: 400;
       line-height: 1.65;
       color: var(--fg);
-    }
-
-    .quote-text p + p {
-      margin-top: 0.9em;
+      margin: 0;
     }
 
     .quote-cite {
       display: block;
-      margin-top: clamp(2rem, 5vh, 3rem);
+      margin: 1.65em 0 0;
       font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      font-weight: 400;
+      line-height: 1.65;
       font-style: normal;
       color: var(--fg);
     }
@@ -284,10 +291,6 @@
 
       .portal {
         width: auto;
-      }
-
-      .brands {
-        gap: clamp(1rem, 4vw, 1.5rem);
       }
     }
 
@@ -340,9 +343,13 @@
           <canvas id="artwork-canvas"></canvas>
         </div>
       </div>
+    </section>
+  </main>
+  </section>
 
-      <nav class="brands" aria-label="Các thương hiệu thuộc Vilium">
-        <a class="brand-link" href="https://rebo.vn" target="_blank" rel="noopener noreferrer">
+  <section class="section section-brands" aria-label="Các thương hiệu thuộc Vilium">
+    <nav class="brands">
+      <a class="brand-link" href="https://rebo.vn" target="_blank" rel="noopener noreferrer">
           <span class="sr-only">Rebo Agency — rebo.vn</span>
           <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path opacity="0.5" d="M81 45C81 64.8823 64.8823 81 45 81C25.1177 81 9 64.8823 9 45C9 25.1177 25.1177 9 45 9C64.8823 9 81 25.1177 81 45ZM10.8 45C10.8 63.8881 26.1119 79.2 45 79.2C63.8881 79.2 79.2 63.8881 79.2 45C79.2 26.1119 63.8881 10.8 45 10.8C26.1119 10.8 10.8 26.1119 10.8 45Z"/>
@@ -368,16 +375,24 @@
             <path d="M23.5568 17.2121C30.7866 17.0688 38.2989 17.1633 45.5494 17.1642L85 17.1528C80.834 19.9524 76.8178 23.2867 72.4692 25.8259C70.704 26.8567 68.8095 27.1933 66.7842 27.2546L26.8841 27.2537C19.6818 27.251 12.1558 27.1155 5 27.2932C10.1942 23.4849 17.1002 17.6858 23.5568 17.2121Z"/>
           </svg>
         </a>
-      </nav>
-    </section>
-  </main>
+    </nav>
   </section>
 
   <section class="section section-quote" aria-label="Trích dẫn">
     <figure class="quote">
       <blockquote class="quote-text">
-        <p>Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do.</p>
-        <p>So, throw off the bowlines.<br>Sail away from the safe harbor.<br>Catch the trade winds in your sails.<br>Explore. Dream. Discover.</p>
+        Hai mươi năm sau lúc này,<br>
+        bạn sẽ thấy thất vọng<br>
+        vì những điều mình không làm<br>
+        hơn vì những điều mình đã làm.<br>
+        <br>
+        Vậy nên hãy tháo nút dây.<br>
+        Hãy cho thuyền rời khỏi bến an toàn.<br>
+        Hãy căng buồm đón gió.<br>
+        <br>
+        Tìm tòi.<br>
+        Ước mơ.<br>
+        Khám phá.
       </blockquote>
       <figcaption class="quote-cite">— Mark Twain</figcaption>
     </figure>
