@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vilium — Vietnam · Iteration · Lean · Premium</title>
+  <meta name="description" content="Vilium — công ty tổng quản của Rebo Agency, Rebo Finance và Tinh Tốc.">
+  <meta name="theme-color" content="#f2efe8">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta property="og:title" content="Vilium">
+  <meta property="og:description" content="Vietnam · Iteration · Lean · Premium">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:image" content="/OG.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vilium">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vilium">
+  <meta name="twitter:description" content="Vietnam · Iteration · Lean · Premium">
+  <meta name="twitter:image" content="/OG.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f2efe8;
+      --bg-deep: #ebe7de;
+      --fg: #1f1e1d;
+      --fg-secondary: #5e5d59;
+      --line: rgba(31, 30, 29, 0.14);
+      --frame: rgba(31, 30, 29, 0.1);
+    }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+      background-size: 220px;
+      z-index: 0;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .section-home {
+      overflow: hidden;
+    }
+
+    .zen-field {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(2rem, 7vh, 4rem);
+      padding: clamp(1.5rem, 5vh, 3.5rem) clamp(1rem, 5vw, 2.5rem);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.75rem, 2vh, 1.1rem);
+      text-align: center;
+      width: 100%;
+      max-width: 40rem;
+    }
+
+    .wordmark {
+      font-size: clamp(2.25rem, 8.5vw, 6.25rem);
+      font-weight: 400;
+      letter-spacing: 0.34em;
+      text-indent: 0.34em;
+      text-transform: uppercase;
+      color: var(--fg);
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 4.2vw, 2.85rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.01em;
+      color: var(--fg);
+      line-height: 1.25;
+      padding: 0 0.25rem;
+    }
+
+    .tagline {
+      margin-top: 0.25rem;
+      font-size: clamp(0.8rem, 2.2vw, 1.375rem);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      line-height: 1.45;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.5rem, 4vh, 2.25rem);
+      width: min(100%, 32rem);
+    }
+
+    .portal {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(8px, 2vw, 12px);
+      background: var(--bg-deep);
+      border: 1px solid var(--frame);
+    }
+
+    .portal::before {
+      content: "";
+      position: absolute;
+      inset: clamp(6px, 2vw, 10px);
+      border: 1px solid var(--line);
+      pointer-events: none;
+    }
+
+    .artwork {
+      display: block;
+      line-height: 0;
+    }
+
+    #artwork-canvas {
+      display: block;
+      background: var(--bg-deep);
+      touch-action: none;
+    }
+
+    .brands {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.25rem, 5vw, 2.75rem);
+      width: 100%;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(3rem, 10vw, 5rem);
+      height: clamp(3rem, 10vw, 5rem);
+      color: var(--fg);
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .brand-link svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .brand-link path {
+      fill: currentColor;
+    }
+
+    .brand-link:focus-visible {
+      outline: 1px solid var(--fg-secondary);
+      outline-offset: 4px;
+    }
+
+    .section-quote {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.5rem, 10vh, 5rem) clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .quote {
+      max-width: 38rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-size: clamp(1.125rem, 2.35vw, 1.375rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+
+    .quote-text p + p {
+      margin-top: 0.9em;
+    }
+
+    .quote-cite {
+      display: block;
+      margin-top: clamp(2rem, 5vh, 3rem);
+      font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      font-style: normal;
+      color: var(--fg);
+    }
+
+    .section-manifesto {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.5rem, 10vh, 5rem) clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .manifesto {
+      margin: 0 auto;
+      text-align: center;
+      font-size: clamp(1.125rem, 2.35vw, 1.375rem);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.65;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 640px) {
+      .wordmark {
+        letter-spacing: 0.2em;
+        text-indent: 0.2em;
+      }
+
+      .tagline {
+        letter-spacing: 0.07em;
+      }
+
+      .portal {
+        width: auto;
+      }
+
+      .brands {
+        gap: clamp(1rem, 4vw, 1.5rem);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .tagline {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg class="zen-field" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="mesh" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path d="M0 24 Q12 20 24 24 T48 24" fill="none" stroke="#1a1a18" stroke-width="0.35" opacity="0.35"/>
+        <path d="M24 0 Q20 12 24 24 T24 48" fill="none" stroke="#1a1a18" stroke-width="0.35" opacity="0.35"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#mesh)" opacity="0.22"/>
+    <circle cx="720" cy="450" r="280" fill="none" stroke="#1a1a18" stroke-width="0.5" opacity="0.07"/>
+    <circle cx="720" cy="450" r="190" fill="none" stroke="#1a1a18" stroke-width="0.5" opacity="0.06"/>
+    <circle cx="720" cy="450" r="95" fill="none" stroke="#1a1a18" stroke-width="0.5" opacity="0.05"/>
+    <circle cx="655" cy="520" r="2.5" fill="#1a1a18" opacity="0.18"/>
+  </svg>
+
+  <section class="section section-home" aria-label="Vilium">
+  <main class="page">
+    <header class="header">
+      <h1 class="wordmark">Vilium</h1>
+      <p class="subtitle">The art of building with intention</p>
+      <p class="tagline" aria-label="Vietnam, Iteration, Lean, Premium">
+        Vietnam · Iteration · Lean · Premium
+      </p>
+    </header>
+
+    <section class="center">
+      <div class="portal">
+        <div class="artwork" aria-hidden="true">
+          <canvas id="artwork-canvas"></canvas>
+        </div>
+      </div>
+
+      <nav class="brands" aria-label="Các thương hiệu thuộc Vilium">
+        <a class="brand-link" href="https://rebo.vn" target="_blank" rel="noopener noreferrer">
+          <span class="sr-only">Rebo Agency — rebo.vn</span>
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path opacity="0.5" d="M81 45C81 64.8823 64.8823 81 45 81C25.1177 81 9 64.8823 9 45C9 25.1177 25.1177 9 45 9C64.8823 9 81 25.1177 81 45ZM10.8 45C10.8 63.8881 26.1119 79.2 45 79.2C63.8881 79.2 79.2 63.8881 79.2 45C79.2 26.1119 63.8881 10.8 45 10.8C26.1119 10.8 10.8 26.1119 10.8 45Z"/>
+            <path d="M81 45C81 64.8823 64.8823 81 45 81C25.1177 81 9 64.8823 9 45C9 25.1177 25.1177 9 45 9C64.8823 9 81 25.1177 81 45ZM9.9 45C9.9 64.3852 25.6148 80.1 45 80.1C64.3852 80.1 80.1 64.3852 80.1 45C80.1 25.6148 64.3852 9.9 45 9.9C25.6148 9.9 9.9 25.6148 9.9 45Z"/>
+            <path d="M54.1881 32.6009C49.3403 33.2684 46.0635 34.35 43.4617 36.13C42.7315 36.6307 42.5965 36.7728 43.1549 36.4576C46.0696 34.795 49.3956 33.6763 52.7337 33.2375C53.7156 33.1077 56.0228 33.0583 56.9371 33.1448C60.1833 33.4477 63.0919 34.7703 65.3808 36.9829C67.2524 38.7877 68.2158 40.7902 68.4306 43.3242C68.6453 45.8088 67.9274 48.2501 66.3749 50.302C64.6321 52.6197 62.1224 54.2391 59.2199 54.9375C57.5937 55.3207 55.489 55.4134 54.0346 55.16C50.899 54.6099 47.9658 53.3985 41.0869 49.8138C37.8224 48.1141 35.0794 46.8347 33.5821 46.3156C31.0724 45.4379 28.1637 45.1784 26.0344 45.6419C25.2183 45.8211 23.9235 46.26 23.1565 46.6246C22.506 46.9336 21.7635 47.3601 21.8065 47.4034C21.8187 47.4157 22.2544 47.3168 22.776 47.1809C24.2119 46.81 25.0526 46.6802 26.2369 46.6432C27.7894 46.5937 28.8387 46.7791 30.9558 47.4713C33.2937 48.2377 36.4294 49.6407 39.6756 51.3775C41.5533 52.3849 45.051 54.134 46.1494 54.6222C48.7328 55.7657 51.0831 56.5568 52.9608 56.9152C53.7094 57.0574 55.3724 57.1934 56.3358 57.1934C59.0419 57.1872 61.5456 56.3034 63.9019 54.5172C66.6326 52.4467 68.5165 49.6531 69.0933 46.81C69.6824 43.9299 69.2099 40.9694 67.7924 38.6826C65.9821 35.7468 62.4169 33.4909 58.5142 32.8111C57.0415 32.5515 55.1944 32.465 54.1881 32.6009Z"/>
+            <path d="M30.5333 40.3015C29.257 40.4684 27.2688 41.1359 25.8206 41.8837C25.207 42.199 25.2008 42.2051 25.4218 42.2237C25.569 42.236 25.8574 42.1681 26.2502 42.0135C28.5697 41.1421 30.9138 41.0803 33.5708 41.8343C35.7308 42.4462 38.3695 43.6267 41.2413 45.2645C45.5736 47.7429 46.9113 48.4042 49.0345 49.1459C52.2561 50.2646 55.1831 50.3078 58.2452 49.2819C59.6504 48.8121 60.669 48.3239 62.1356 47.4339C62.8045 47.0321 62.8106 47.026 62.5836 47.0074C62.4363 46.9951 62.2584 47.0383 62.062 47.1372C61.1661 47.5946 59.4172 48.2065 58.2697 48.4784C56.8093 48.8183 54.9745 48.911 53.6061 48.7009C50.8999 48.2868 48.6172 47.335 44.1254 44.7392C40.5786 42.6934 38.2468 41.6427 35.6081 40.9134C33.7549 40.3942 31.6931 40.147 30.5333 40.3015Z"/>
+            <path d="M26.0826 49.5356C24.9044 49.6716 23.7139 50.0177 22.5848 50.5616C21.7687 50.951 21.4496 51.1426 20.793 51.6494C20.3512 51.9893 20.2591 52.1253 20.4616 52.1253C20.5046 52.1253 21.0078 51.8966 21.5785 51.6247C23.3089 50.7841 23.7998 50.642 24.9166 50.642C25.923 50.642 26.8067 50.8583 28.083 51.4145C29.1078 51.8595 29.9976 52.3725 31.5439 53.417C34.0537 55.1105 34.336 55.3021 35.0355 55.7286C36.8703 56.8411 38.1405 57.2922 39.871 57.4529C40.8467 57.5395 41.8162 57.4653 43.111 57.1995C43.9578 57.0265 45.5594 56.5815 45.5103 56.532C45.498 56.5197 45.0623 56.5382 44.5469 56.5815C42.9207 56.7051 41.988 56.6 40.6073 56.1427C39.4476 55.7533 38.6007 55.2712 35.8823 53.4418C33.2192 51.6556 32.0778 50.951 30.9487 50.4133C30.151 50.0301 29.1569 49.684 28.5003 49.5542C27.9971 49.4615 26.8373 49.4491 26.0826 49.5356Z"/>
+          </svg>
+        </a>
+
+        <a class="brand-link" href="https://rebo.ai.vn" target="_blank" rel="noopener noreferrer">
+          <span class="sr-only">Rebo Finance — rebo.ai.vn</span>
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M45 11.25C63.6396 11.25 78.75 26.3604 78.75 45C78.75 53.6725 75.4773 61.5796 70.1016 67.5576L55.0508 49.208C54.9234 49.0527 55.0043 48.8177 55.2002 48.7734L71.4404 45.1055C71.721 45.042 71.7209 44.6416 71.4404 44.5781L55.1465 40.8975C54.9646 40.8564 54.878 40.6479 54.9775 40.4902L63.8965 26.3662C64.05 26.1231 63.7676 25.8402 63.5244 25.9932L49.3994 34.9121C49.2418 35.0116 49.0335 34.9258 48.9922 34.7441L45.3115 18.4492C45.2479 18.1691 44.8489 18.1691 44.7852 18.4492L41.1045 34.7441C41.0632 34.9258 40.8539 35.0116 40.6963 34.9121L26.5723 25.9932C26.329 25.8399 26.0466 26.123 26.2002 26.3662L35.1191 40.4902C35.2187 40.6479 35.1321 40.8564 34.9502 40.8975L18.6562 44.5781C18.3756 44.6415 18.3756 45.0421 18.6562 45.1055L34.9502 48.7852C35.1321 48.8262 35.2187 49.0357 35.1191 49.1934L26.2002 63.3174C26.0466 63.5607 26.329 63.8431 26.5723 63.6895L40.6963 54.7705C40.854 54.6709 41.0634 54.7576 41.1045 54.9395L44.7852 71.2334C44.8486 71.5141 45.2481 71.5141 45.3115 71.2334L48.9805 54.9932C49.0248 54.7974 49.2598 54.7164 49.415 54.8438L67.7754 69.9043C61.7723 75.3973 53.7782 78.75 45 78.75C26.3604 78.75 11.25 63.6396 11.25 45C11.25 26.3604 26.3604 11.25 45 11.25Z"/>
+          </svg>
+        </a>
+
+        <a class="brand-link" href="https://tinhtoc.com" target="_blank" rel="noopener noreferrer">
+          <span class="sr-only">Tinh Tốc — tinhtoc.com</span>
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M38.7675 29.5697C40.2934 29.418 42.7733 29.5154 44.3836 29.5375C41.7021 37.1165 38.058 44.7694 35.2215 52.3408C34.1313 55.2541 32.7759 58.8142 31.4671 61.6118C29.1438 66.5117 24.9778 70.2954 19.8783 72.139C17.8961 72.7392 16.8679 72.9023 14.8047 72.9665C17.7307 65.2162 21.0787 57.3995 24.0839 49.6328C25.8389 45.0943 27.8401 39.4324 30.1375 35.2434C31.8787 32.0664 35.2955 30.3703 38.7675 29.5697Z"/>
+            <path d="M56.8769 29.5697C58.4027 29.418 60.8827 29.5154 62.493 29.5375C59.8115 37.1165 56.1673 44.7694 53.3308 52.3408C52.2407 55.2541 50.8853 58.8142 49.5764 61.6118C47.2532 66.5117 43.0872 70.2954 37.9877 72.139C36.0054 72.7392 34.9773 72.9023 32.9141 72.9665C35.8401 65.2162 39.1881 57.3995 42.1933 49.6328C43.9483 45.0943 45.9495 39.4324 48.2469 35.2434C49.988 32.0664 53.4049 30.3703 56.8769 29.5697Z"/>
+            <path d="M23.5568 17.2121C30.7866 17.0688 38.2989 17.1633 45.5494 17.1642L85 17.1528C80.834 19.9524 76.8178 23.2867 72.4692 25.8259C70.704 26.8567 68.8095 27.1933 66.7842 27.2546L26.8841 27.2537C19.6818 27.251 12.1558 27.1155 5 27.2932C10.1942 23.4849 17.1002 17.6858 23.5568 17.2121Z"/>
+          </svg>
+        </a>
+      </nav>
+    </section>
+  </main>
+  </section>
+
+  <section class="section section-quote" aria-label="Trích dẫn">
+    <figure class="quote">
+      <blockquote class="quote-text">
+        <p>Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do.</p>
+        <p>So, throw off the bowlines.<br>Sail away from the safe harbor.<br>Catch the trade winds in your sails.<br>Explore. Dream. Discover.</p>
+      </blockquote>
+      <figcaption class="quote-cite">— Mark Twain</figcaption>
+    </figure>
+  </section>
+
+  <section class="section section-manifesto" aria-label="Lời nhắn">
+    <p class="manifesto">Hãy thắp đuốc lên mà đi</p>
+  </section>
+
+  <script src="/artwork.js" defer></script>
+</body>
+</html>
